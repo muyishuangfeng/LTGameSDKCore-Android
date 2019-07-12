@@ -1,0 +1,137 @@
+package com.gentop.ltgame.ltgamesdkcore.model;
+
+
+import com.gentop.ltgame.ltgamesdkcore.base.BaseEntry;
+import com.gentop.ltgame.ltgamesdkcore.exception.LTGameError;
+import com.gentop.ltgame.ltgamesdkcore.model.token.AccessToken;
+import com.gentop.ltgame.ltgamesdkcore.model.user.LTGameUser;
+
+public class LoginResult extends Result {
+
+    // 本次登陆的 token 信息，openId, unionId,token,expires_in
+    private AccessToken mToken;
+    // 返回的基本用户信息
+    // 针对登录类型可强转为 WxUser,QQUser 来获取更加丰富的信息
+    private LTGameUser mUser;
+    // 授权码，如果 onlyAuthCode 为 true, 将会返回它
+    public String wxAuthCode;
+
+    private BaseEntry<ResultModel> resultModel;
+
+
+    public LoginResult(int state, int target) {
+        super(state, target);
+    }
+
+    public LoginResult(int state) {
+        super(state, -1);
+    }
+
+    public LoginResult(int state, BaseEntry<ResultModel> resultModel) {
+        super(state, resultModel);
+    }
+
+
+    public static LoginResult successOf(int target, LTGameUser baseUser, AccessToken baseToken) {
+        LoginResult result = new LoginResult(STATE_SUCCESS, target);
+        result.mUser = baseUser;
+        result.mToken = baseToken;
+        return result;
+    }
+
+    public static LoginResult successOf(int target, String wxAuthCode) {
+        LoginResult result = new LoginResult(STATE_SUCCESS, target);
+        result.wxAuthCode = wxAuthCode;
+        return result;
+    }
+
+    public static LoginResult successOf(int target, BaseEntry<ResultModel> resultModel) {
+        LoginResult result = new LoginResult(STATE_SUCCESS, target);
+        result.resultModel = resultModel;
+        return result;
+    }
+
+    public static LoginResult successOf(BaseEntry<ResultModel> resultModel) {
+        LoginResult result = new LoginResult(STATE_SUCCESS);
+        result.resultModel = resultModel;
+        return result;
+    }
+    public static LoginResult rechargeSuccessOf(BaseEntry<ResultModel> resultModel) {
+        LoginResult result = new LoginResult(STATE_RECHARGE_SUCCESS);
+        result.resultModel = resultModel;
+        return result;
+    }
+
+    public static LoginResult successOf(int target) {
+        return new LoginResult(STATE_SUCCESS, target);
+    }
+
+    public static LoginResult failOf(int target, LTGameError error) {
+        LoginResult result = new LoginResult(STATE_FAIL, target);
+        result.error = error;
+        return result;
+    }
+
+    public static LoginResult failOf(int target, BaseEntry<ResultModel> error) {
+        LoginResult result = new LoginResult(STATE_FAIL, target);
+        result.resultModel = error;
+        return result;
+    }
+
+    public static LoginResult failOf(LTGameError error) {
+        LoginResult result = new LoginResult(STATE_FAIL);
+        result.error = error;
+        return result;
+    }
+
+    public static LoginResult cancelOf(int target) {
+        return new LoginResult(STATE_CANCEL, target);
+    }
+
+    public static LoginResult cancelOf() {
+        return new LoginResult(STATE_CANCEL);
+    }
+
+    public static LoginResult completeOf(int target) {
+        return new LoginResult(STATE_COMPLETE, target);
+    }
+
+    public static LoginResult stateOf(int state, int target) {
+        return new LoginResult(state, target);
+    }
+
+
+    public static LoginResult stateOf(int state) {
+        return new LoginResult(state);
+    }
+
+
+    public BaseEntry<ResultModel> getResultModel() {
+        return resultModel;
+    }
+
+    public AccessToken getmToken() {
+        return mToken;
+    }
+
+    public LTGameUser getmUser() {
+        return mUser;
+    }
+
+    public String getWxAuthCode() {
+        return wxAuthCode;
+    }
+
+    @Override
+    public String toString() {
+        return "LoginResult{" +
+                "mToken=" + mToken +
+                ", mUser=" + mUser +
+                ", wxAuthCode='" + wxAuthCode + '\'' +
+                ", resultModel=" + resultModel +
+                ", state=" + state +
+                ", target=" + target +
+                ", error=" + error +
+                '}';
+    }
+}

@@ -30,7 +30,8 @@ public enum OneStoreResult {
     RESULT_PURCHASES_FLOW_NEED_UPDATE(25, "Purchases Flow need update"),
     RESULT_CLIENT_NOT_INIT(26, "PurchaseClient is not initialized"),
     RESULT_CLIENT_CONNECTED(27, "PurchaseClient connected"),
-    RESULT_CLIENT_UN_CONNECTED(28, "PurchaseClient disconnected");
+    RESULT_CLIENT_UN_CONNECTED(28, "PurchaseClient disconnected"),
+    IAP_ERROR_UNDEFINED_CODE(29, "Undefined errors");
 
     private int code;
     private String description;
@@ -54,5 +55,17 @@ public enum OneStoreResult {
     OneStoreResult(int code, String description) {
         this.code = code;
         this.description = description;
+    }
+
+    public static OneStoreResult getResult(int code) {
+        OneStoreResult[] var1 = values();
+        int var2 = var1.length;
+        for (int var3 = 0; var3 < var2; ++var3) {
+            OneStoreResult item = var1[var3];
+            if (item.getCode() == code) {
+                return item;
+            }
+        }
+        return IAP_ERROR_UNDEFINED_CODE;
     }
 }

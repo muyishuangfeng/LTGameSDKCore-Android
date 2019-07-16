@@ -1,4 +1,4 @@
 # LTGameSDKCore-Android
 
 
-       implementation 'com.github.muyishuangfeng:LTGameSDKFacebook-Android:1.0.1'
+       implementation 'com.github.muyishuangfeng:LTGameSDKCore-Android:1.0.2'

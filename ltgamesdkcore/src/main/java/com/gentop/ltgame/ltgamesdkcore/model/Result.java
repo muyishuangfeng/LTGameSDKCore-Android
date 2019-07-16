@@ -19,8 +19,6 @@ public class Result {
     public static final int STATE_COMPLETE = 5;
     //有效
     public static final int STATE_ACTIVE = 6;
-    //支付开始
-    public static final int STATE_RECHARGE_START = 11;
     //支付成功
     public static final int STATE_RECHARGE_SUCCESS = 7;
     //支付失败
@@ -29,8 +27,10 @@ public class Result {
     public static final int STATE_RECHARGE_CANCEL = 9;
     //支付完成
     public static final int STATE_RECHARGE_COMPLETE = 10;
+    //支付开始
+    public static final int STATE_RECHARGE_START = 11;
     //支付结果
-    public static final int STATE_RECHARGE_RESULT = 11;
+    public static final int STATE_RECHARGE_RESULT = 12;
     //状态
     public int state;
     //目标

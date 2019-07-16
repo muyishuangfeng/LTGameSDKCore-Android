@@ -8,6 +8,7 @@ public class RechargeResult extends Result {
     private RechargeObject rechargeObject;
     private BaseEntry<ResultModel> resultModel;
     private OneStoreResult result;
+    private String errorMsg;
 
 
     private RechargeResult(int state, RechargeObject shareObj, int target) {
@@ -44,6 +45,7 @@ public class RechargeResult extends Result {
         return result;
     }
 
+
     public static RechargeResult successOf(int target, RechargeObject obj) {
         RechargeResult result = new RechargeResult(STATE_RECHARGE_SUCCESS, obj, target);
         result.rechargeObject = obj;
@@ -64,8 +66,10 @@ public class RechargeResult extends Result {
         return result;
     }
 
-    public static RechargeResult failOf(String result) {
-        return new RechargeResult(STATE_RECHARGE_FAILED, result);
+    public static RechargeResult failOf(String errorMsg) {
+        RechargeResult result = new RechargeResult(STATE_RECHARGE_FAILED, errorMsg);
+        result.errorMsg = errorMsg;
+        return result;
     }
 
     public static RechargeResult failOf(int target, RechargeObject obj, LTGameError error) {
@@ -75,6 +79,11 @@ public class RechargeResult extends Result {
     }
 
     public static RechargeResult failOf(int target, LTGameError error) {
+        RechargeResult result = new RechargeResult(STATE_RECHARGE_FAILED);
+        result.error = error;
+        return result;
+    }
+    public static RechargeResult failOf(LTGameError error) {
         RechargeResult result = new RechargeResult(STATE_RECHARGE_FAILED);
         result.error = error;
         return result;
@@ -119,5 +128,21 @@ public class RechargeResult extends Result {
 
     public void setResultModel(BaseEntry<ResultModel> resultModel) {
         this.resultModel = resultModel;
+    }
+
+    public OneStoreResult getResult() {
+        return result;
+    }
+
+    public void setResult(OneStoreResult result) {
+        this.result = result;
+    }
+
+    public String getErrorMsg() {
+        return errorMsg;
+    }
+
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
     }
 }

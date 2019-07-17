@@ -41,6 +41,14 @@ public class LTGameSdk {
         if (mOptions.isPhoneEnable()) {
             addPlatform(Target.PLATFORM_PHONE, "com.yk.slience.ltgamephone.PhonePlatform$Factory");
         }
+        // 微博平台
+        if (mOptions.isWBEnable()) {
+            addPlatform(Target.PLATFORM_WB, "com.yk.slience.ltgamewb.WBPlatform$Factory");
+        }
+        // Twitter平台
+        if (mOptions.isTwitterEnable()) {
+            addPlatform(Target.PLATFORM_TWITTER, "com.yk.slience.ltgametwitter.TwitterPlatform$Factory");
+        }
     }
 
     /**

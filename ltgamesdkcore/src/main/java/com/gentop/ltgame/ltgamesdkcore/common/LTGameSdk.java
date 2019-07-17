@@ -37,6 +37,10 @@ public class LTGameSdk {
         if (mOptions.isOneStoreEnable()) {
             addPlatform(Target.PLATFORM_ONE_STORE, "com.gentop.ltgame.ltgameonestore.OneStorePlatform$Factory");
         }
+        // 手机平台
+        if (mOptions.isPhoneEnable()) {
+            addPlatform(Target.PLATFORM_PHONE, "com.yk.slience.ltgamephone.PhonePlatform$Factory");
+        }
     }
 
     /**

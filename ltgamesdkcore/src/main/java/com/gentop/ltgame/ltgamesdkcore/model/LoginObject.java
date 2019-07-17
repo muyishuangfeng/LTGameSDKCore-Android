@@ -19,6 +19,9 @@ public class LoginObject {
     private int selfRequestCode;//请求码
     private String facebookAppID;//facebook AppID
     private boolean loginOut;//退出登录
+    private String mPhone;//手机号
+    private String mPassword;//密码
+    private String mLoginCode;//登录状态码
 
     public String getAppSecret() {
         return appSecret;
@@ -122,5 +125,29 @@ public class LoginObject {
 
     public void setLoginOut(boolean loginOut) {
         this.loginOut = loginOut;
+    }
+
+    public String getmPhone() {
+        return mPhone;
+    }
+
+    public void setmPhone(String mPhone) {
+        this.mPhone = mPhone;
+    }
+
+    public String getmPassword() {
+        return mPassword;
+    }
+
+    public void setmPassword(String mPassword) {
+        this.mPassword = mPassword;
+    }
+
+    public String getmLoginCode() {
+        return mLoginCode;
+    }
+
+    public void setmLoginCode(String mLoginCode) {
+        this.mLoginCode = mLoginCode;
     }
 }

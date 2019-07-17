@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import com.gentop.ltgame.ltgamesdkcore.R;
 
+import java.io.File;
 import java.util.Map;
 
 public class LTGameOptions {
@@ -64,6 +65,19 @@ public class LTGameOptions {
     private String goodsType;
     //onestore
     private boolean oneStoreEnable;
+    //手机号
+    private String mPhone;
+    //密码
+    private String mPassword;
+    //登录状态
+    private String mLoginCode;
+    //是否支持手机登录
+    private boolean isPhoneEnable;
+    //是否支持Twitter登录
+    private boolean isTwitterEnable;
+    //是否支持微博登录
+    private boolean isWBEnable;
+
 
     public String getAppName() {
         return appName;
@@ -182,6 +196,29 @@ public class LTGameOptions {
         return goodsType;
     }
 
+    public String getmPhone() {
+        return mPhone;
+    }
+
+    public String getmPassword() {
+        return mPassword;
+    }
+
+    public String getmLoginCode() {
+        return mLoginCode;
+    }
+
+    public boolean isPhoneEnable() {
+        return isPhoneEnable;
+    }
+
+    public boolean isTwitterEnable() {
+        return isTwitterEnable;
+    }
+
+    public boolean isWBEnable() {
+        return isWBEnable;
+    }
 
     private LTGameOptions(Builder builder) {
         if (builder.wxOnlyAuthCode == null) {
@@ -216,6 +253,9 @@ public class LTGameOptions {
         this.mPublicKey = builder.mPublicKey;
         this.goodsID = builder.goodsID;
         this.goodsType = builder.mGoodsType;
+        this.mPhone = builder.mPhone;
+        this.mPassword = builder.mPassword;
+        this.mLoginCode = builder.mLoginCode;
 
         // enable
         this.wxEnable = builder.wxEnable;
@@ -224,7 +264,11 @@ public class LTGameOptions {
         this.googleEnable = builder.googleEnable;
         this.googlePlayEnable = builder.googlePlayEnable;
         this.oneStoreEnable = builder.oneStoreEnable;
+        this.isPhoneEnable = builder.isPhoneEnable;
+        this.isWBEnable = builder.isWBEnable;
+        this.isTwitterEnable = builder.isTwitterEnable;
     }
+
 
     @Override
     public String toString() {
@@ -254,6 +298,12 @@ public class LTGameOptions {
                 ", mPayTest=" + mPayTest +
                 ", mParams=" + mParams +
                 ", mPublicKey='" + mPublicKey + '\'' +
+                ", goodsID='" + goodsID + '\'' +
+                ", goodsType='" + goodsType + '\'' +
+                ", oneStoreEnable=" + oneStoreEnable +
+                ", mPhone='" + mPhone + '\'' +
+                ", mPassword='" + mPassword + '\'' +
+                ", mLoginCode='" + mLoginCode + '\'' +
                 '}';
     }
 
@@ -311,6 +361,18 @@ public class LTGameOptions {
         private String mGoodsType;
         //oneStore
         private boolean oneStoreEnable;
+        //手机号
+        private String mPhone;
+        //密码
+        private String mPassword;
+        //登录状态
+        private String mLoginCode;
+        //是否支持手机登录
+        private boolean isPhoneEnable;
+        //是否支持Twitter登录
+        private boolean isTwitterEnable;
+        //是否支持微博登录
+        private boolean isWBEnable;
 
         public Builder(Context context) {
             this.context = context;
@@ -345,6 +407,21 @@ public class LTGameOptions {
             return this;
         }
 
+        public Builder wbEnable() {
+            this.isWBEnable = true;
+            return this;
+        }
+
+        public Builder phoneEnable() {
+            this.isPhoneEnable = true;
+            return this;
+        }
+
+        public Builder twitterEnable() {
+            this.isTwitterEnable = true;
+            return this;
+        }
+
         public Builder wx(String wxAppId, String wxSecretKey, boolean wxOnlyAuthCode) {
             this.wxOnlyAuthCode = wxOnlyAuthCode;
             this.wxSecretKey = wxSecretKey;
@@ -356,6 +433,17 @@ public class LTGameOptions {
         public Builder google(String googleClientID) {
             this.googleClientID = googleClientID;
             this.googleEnable = true;
+            return this;
+        }
+
+        public Builder phoneAndPass(String phone, String password) {
+            this.mPhone = phone;
+            this.mPassword = password;
+            return this;
+        }
+
+        public Builder loginCode(String loginCode) {
+            this.mLoginCode = loginCode;
             return this;
         }
 

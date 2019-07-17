@@ -28,6 +28,9 @@ public abstract class AbsPlatform implements IPlatform {
     protected String mPublicKey;
     protected String mProductID;
     protected String mPayType;
+    protected String mPhone;
+    protected String mPassword;
+    protected String mLoginCode;
 
 
     public AbsPlatform(Context context, String appId, String appName, String appKey, int target) {
@@ -63,6 +66,17 @@ public abstract class AbsPlatform implements IPlatform {
         mSelfRequestCode = selfRequestCode;
         mSku = sku;
         mParams = params;
+        mTarget = target;
+    }
+
+    public AbsPlatform(Context context, String appId, String appKey, String baseUrl, String phone,
+                       String password, String loginCode, int target) {
+        mAppId = appId;
+        mAppKey = appKey;
+        mBaseUrl = baseUrl;
+        mLoginCode = loginCode;
+        mPhone = phone;
+        mPassword = password;
         mTarget = target;
     }
 

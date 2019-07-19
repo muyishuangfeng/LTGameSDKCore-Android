@@ -3,6 +3,7 @@ package com.gentop.ltgame.ltgamesdkcore.platform;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 
 import com.gentop.ltgame.ltgamesdkcore.impl.OnLoginStateListener;
 import com.gentop.ltgame.ltgamesdkcore.model.LoginObject;
@@ -31,6 +32,7 @@ public abstract class AbsPlatform implements IPlatform {
     protected String mPhone;
     protected String mPassword;
     protected String mLoginCode;
+    protected String mQqAppID;
 
 
     public AbsPlatform(Context context, String appId, String appName, String appKey, int target) {
@@ -52,6 +54,15 @@ public abstract class AbsPlatform implements IPlatform {
         mSelfRequestCode = selfRequestCode;
         mSku = sku;
         mParams = params;
+        mTarget = target;
+    }
+
+    public AbsPlatform(Context context, String baseUrl, String appId, String appKey,
+                       String qqAppID, int target) {
+        mAppId = appId;
+        mAppKey = appKey;
+        mBaseUrl = baseUrl;
+        mQqAppID = qqAppID;
         mTarget = target;
     }
 
@@ -109,7 +120,7 @@ public abstract class AbsPlatform implements IPlatform {
     }
 
     @Override
-    public void handIntent(Activity intent) {
+    public void handleIntent(Activity intent) {
 
     }
 
@@ -138,5 +149,7 @@ public abstract class AbsPlatform implements IPlatform {
 
     }
 
-
+    public boolean checkPlatformConfig() {
+        return !TextUtils.isEmpty(mAppId) && !TextUtils.isEmpty(mAppKey);
+    }
 }

@@ -17,6 +17,7 @@ public class LTGameError extends RuntimeException {
     public static final int CODE_NOT_SUPPORT = 117; // 不支持
     public static final int CODE_COMPLETE = 118; // 完成
     public static final int CODE_RECHARGE_ERROR = 119; // 支付失败
+    public static final int CODE_PARSE_ERROR = 120; // 数据解析失败
 
 
     private int code = CODE_OK;

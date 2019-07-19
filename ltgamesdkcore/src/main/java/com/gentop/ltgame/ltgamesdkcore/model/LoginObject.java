@@ -1,12 +1,13 @@
 package com.gentop.ltgame.ltgamesdkcore.model;
 
+
 /**
  * 登录参数类
  */
 public class LoginObject {
 
     private String appSecret; // 授权域
-    //private String scope = SocialValues.WX_SCOPE; // 授权域
+    private String scope = LTGameValues.WX_SCOPE; // 授权域
     private String nonceStr; // 随机字符串
     private String timestamp; // 时间戳
     private String signature; // 签名
@@ -22,6 +23,15 @@ public class LoginObject {
     private String mPhone;//手机号
     private String mPassword;//密码
     private String mLoginCode;//登录状态码
+    private String qqAppID;//qqAppID
+
+    public String getScope() {
+        return scope;
+    }
+
+    public void setScope(String scope) {
+        this.scope = scope;
+    }
 
     public String getAppSecret() {
         return appSecret;
@@ -149,5 +159,13 @@ public class LoginObject {
 
     public void setmLoginCode(String mLoginCode) {
         this.mLoginCode = mLoginCode;
+    }
+
+    public String getQqAppID() {
+        return qqAppID;
+    }
+
+    public void setQqAppID(String qqAppID) {
+        this.qqAppID = qqAppID;
     }
 }

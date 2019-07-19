@@ -24,7 +24,7 @@ public class BaseActionActivity extends Activity {
         super.onCreate(savedInstanceState);
         //for 微信
         if (getPlatform() != null) {
-            getPlatform().handIntent(this);
+            getPlatform().handleIntent(this);
         }
         GlobalPlatform.dispatchAction(this, getIntent().getIntExtra(GlobalPlatform.KEY_ACTION_TYPE, -1));
     }
@@ -34,7 +34,7 @@ public class BaseActionActivity extends Activity {
         super.onNewIntent(intent);
         setIntent(intent);
         if (getPlatform() != null) {
-            getPlatform().handIntent(this);
+            getPlatform().handleIntent(this);
         }
     }
 
@@ -43,7 +43,7 @@ public class BaseActionActivity extends Activity {
         super.onResume();
         if (mIsNotFirstResume) {
             if (getPlatform() != null) {
-                getPlatform().handIntent(this);
+                getPlatform().handleIntent(this);
             }
             // 留在目标 app 后在返回会再次 resume
             checkFinish();
@@ -100,7 +100,7 @@ public class BaseActionActivity extends Activity {
     /**
      * 回调
      */
-    protected void handResp(Object object) {
+    protected void handleResp(Object object) {
         IPlatform iPlatform = getPlatform();
         if (iPlatform != null) {
             iPlatform.onResponse(object);

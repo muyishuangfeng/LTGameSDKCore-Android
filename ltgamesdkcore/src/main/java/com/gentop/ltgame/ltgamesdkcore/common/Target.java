@@ -16,6 +16,7 @@ public class Target {
     public static final int PLATFORM_PHONE = 106; // 手机登录
     public static final int PLATFORM_WB = 107; // 微博登录
     public static final int PLATFORM_TWITTER = 108; // Twitter登录
+    public static final int PLATFORM_WX_SCAN = 109; // 微信扫码登录
 
     public static final int LOGIN_QQ = 200; // qq 登录
     public static final int LOGIN_WX = 201; // 微信登录
@@ -26,6 +27,7 @@ public class Target {
     public static final int LOGIN_PHONE = 206; // 手机登录
     public static final int LOGIN_WB = 207; // 微博登录
     public static final int LOGIN_TWITTER = 208; // Twitter登录
+    public static final int LOGIN_WX_SCAN = 209; // 微信扫码登录
 
     @IntDef({Target.RECHARGE_GOOGLE, Target.RECHARGE_ONE_STORE})
     @Retention(RetentionPolicy.SOURCE)
@@ -34,14 +36,14 @@ public class Target {
     }
 
     @IntDef({Target.LOGIN_FACEBOOK, Target.LOGIN_GOOGLE, Target.LOGIN_QQ, Target.LOGIN_WX,
-            LOGIN_WB, LOGIN_TWITTER, LOGIN_PHONE})
+            LOGIN_WB, LOGIN_TWITTER, LOGIN_PHONE, LOGIN_WX_SCAN})
     @Retention(RetentionPolicy.SOURCE)
     public @interface LoginTarget {
     }
 
     @IntDef({Target.PLATFORM_FACEBOOK, Target.PLATFORM_GOOGLE, Target.PLATFORM_QQ, Target.PLATFORM_WX,
             Target.PLATFORM_GOOGLE_PLAY, Target.PLATFORM_ONE_STORE, PLATFORM_TWITTER, PLATFORM_WB,
-            PLATFORM_PHONE})
+            PLATFORM_PHONE, PLATFORM_WX_SCAN})
     @Retention(RetentionPolicy.SOURCE)
     public @interface PlatformTarget {
     }
@@ -70,6 +72,9 @@ public class Target {
                 break;
             case Target.LOGIN_TWITTER:
                 result = "Twitter登录";
+                break;
+            case Target.LOGIN_WX_SCAN:
+                result = "微信扫码登录";
                 break;
         }
         return result;

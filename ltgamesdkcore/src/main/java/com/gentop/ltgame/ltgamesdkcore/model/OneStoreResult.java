@@ -30,8 +30,8 @@ public enum OneStoreResult {
     RESULT_PURCHASES_FLOW_NEED_UPDATE(25, "Purchases Flow need update"),
     RESULT_CLIENT_NOT_INIT(26, "PurchaseClient is not initialized"),
     RESULT_CLIENT_CONNECTED(27, "PurchaseClient connected"),
-    RESULT_CLIENT_UN_CONNECTED(28, "PurchaseClient disconnected"),
-    IAP_ERROR_UNDEFINED_CODE(29, "Undefined errors");
+    IAP_ERROR_UNDEFINED_CODE(28, "Undefined errors"),
+    RESULT_CLIENT_UN_CONNECTED(29, "PurchaseClient disconnected");
 
     private int code;
     private String description;

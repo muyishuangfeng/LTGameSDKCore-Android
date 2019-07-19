@@ -146,9 +146,9 @@ public class LoginManager {
             IPlatform platform = GlobalPlatform.newPlatformByTarget(activity, target);
             GlobalPlatform.savePlatform(platform);
             //没有安装
-            if (!platform.isInstall(activity)) {
-                listener.onState(originActivity.get(), LoginResult.failOf(target, LTGameError.make(LTGameError.CODE_NOT_INSTALL)));
-            }
+//            if (!platform.isInstall(activity)) {
+//                listener.onState(originActivity.get(), LoginResult.failOf(target, LTGameError.make(LTGameError.CODE_NOT_INSTALL)));
+//            }
             //跳转
             Intent intent = new Intent(activity, platform.getUIKitClazz());
             intent.putExtra(GlobalPlatform.KEY_ACTION_TYPE, GlobalPlatform.ACTION_TYPE_LOGIN);

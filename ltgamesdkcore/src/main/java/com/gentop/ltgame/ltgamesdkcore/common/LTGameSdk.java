@@ -23,31 +23,31 @@ public class LTGameSdk {
         mPlatformFactories = new SparseArray<>();
         // Google平台
         if (mOptions.isGoogleEnable()) {
-            addPlatform(Target.PLATFORM_GOOGLE, "com.gentop.ltgame.ltgamegoogle.GooglePlatform$Factory");
+            addPlatform(Target.PLATFORM_GOOGLE, "com.sdk.ltgame.ltgoogle.GooglePlatform$Factory");
         }
         // Facebook平台
         if (mOptions.isFacebookEnable()) {
-            addPlatform(Target.PLATFORM_FACEBOOK, "com.gentop.ltgame.ltgamefacebook.FacebookPlatform$Factory");
+            addPlatform(Target.PLATFORM_FACEBOOK, "com.sdk.ltgame.ltfacebook.FacebookPlatform$Factory");
         }
         // GooglePlay平台
         if (mOptions.isGooglePlayEnable()) {
-            addPlatform(Target.PLATFORM_GOOGLE_PLAY, "com.gentop.ltgame.ltgamegoogleplay.GooglePlayPlatform$Factory");
+            addPlatform(Target.PLATFORM_GOOGLE_PLAY, "com.sdk.ltgame.ltgoogleplay.GooglePlayPlatform$Factory");
         }
         // oneStore平台
         if (mOptions.isOneStoreEnable()) {
-            addPlatform(Target.PLATFORM_ONE_STORE, "com.gentop.ltgame.ltgameonestore.OneStorePlatform$Factory");
+            addPlatform(Target.PLATFORM_ONE_STORE, "com.sdk.ltgame.ltonestore.OneStorePlatform$Factory");
         }
         // 手机平台
         if (mOptions.isPhoneEnable()) {
-            addPlatform(Target.PLATFORM_PHONE, "com.yk.slience.ltgamephone.PhonePlatform$Factory");
+            addPlatform(Target.PLATFORM_PHONE, "com.sdk.ltgame.ltphone.PhonePlatform$Factory");
         }
-        // 微博平台
-        if (mOptions.isWBEnable()) {
-            addPlatform(Target.PLATFORM_WB, "com.yk.slience.ltgamewb.WBPlatform$Factory");
+        // QQ平台
+        if (mOptions.isQqEnable()) {
+            addPlatform(Target.PLATFORM_QQ, "com.sdk.ltgame.ltqq.QQPlatform$Factory");
         }
-        // Twitter平台
-        if (mOptions.isTwitterEnable()) {
-            addPlatform(Target.PLATFORM_TWITTER, "com.yk.slience.ltgametwitter.TwitterPlatform$Factory");
+        // 微信平台
+        if (mOptions.isWxEnable()) {
+            addPlatform(Target.PLATFORM_WX, "com.sdk.ltgame.ltwechat.WxPlatform$Factory");
         }
     }
 

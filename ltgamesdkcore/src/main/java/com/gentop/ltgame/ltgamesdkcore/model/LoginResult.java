@@ -17,6 +17,10 @@ public class LoginResult extends Result {
     public String wxAuthCode;
 
     private BaseEntry<ResultModel> resultModel;
+    private BaseEntry baseEntry;
+    private LTGameError error;
+    // 扫码登录二维码文件路径
+    public String wxCodePath;
 
 
     public LoginResult(int state, int target) {
@@ -30,6 +34,14 @@ public class LoginResult extends Result {
     public LoginResult(int state, BaseEntry<ResultModel> resultModel) {
         super(state, resultModel);
     }
+
+
+    public static LoginResult stateOf(BaseEntry baseEntry) {
+        LoginResult result = new LoginResult(STATE_SUCCESS);
+        result.baseEntry = baseEntry;
+        return result;
+    }
+
 
 
     public static LoginResult successOf(int target, LTGameUser baseUser, AccessToken baseToken) {
@@ -56,6 +68,7 @@ public class LoginResult extends Result {
         result.resultModel = resultModel;
         return result;
     }
+
     public static LoginResult rechargeSuccessOf(BaseEntry<ResultModel> resultModel) {
         LoginResult result = new LoginResult(STATE_RECHARGE_SUCCESS);
         result.resultModel = resultModel;
@@ -110,6 +123,10 @@ public class LoginResult extends Result {
         return resultModel;
     }
 
+    public BaseEntry getBaseEntry() {
+        return baseEntry;
+    }
+
     public AccessToken getmToken() {
         return mToken;
     }
@@ -122,6 +139,12 @@ public class LoginResult extends Result {
         return wxAuthCode;
     }
 
+    public LTGameError getError() {
+        return error;
+    }
+
+
+
     @Override
     public String toString() {
         return "LoginResult{" +
@@ -129,9 +152,12 @@ public class LoginResult extends Result {
                 ", mUser=" + mUser +
                 ", wxAuthCode='" + wxAuthCode + '\'' +
                 ", resultModel=" + resultModel +
+                ", baseEntry=" + baseEntry +
+                ", error=" + error +
                 ", state=" + state +
                 ", target=" + target +
                 ", error=" + error +
+                ", result=" + result +
                 '}';
     }
 }

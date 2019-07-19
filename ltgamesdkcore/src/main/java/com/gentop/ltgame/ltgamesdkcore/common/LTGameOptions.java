@@ -4,11 +4,13 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.gentop.ltgame.ltgamesdkcore.R;
+import com.gentop.ltgame.ltgamesdkcore.util.FileUtil;
 
 import java.io.File;
 import java.util.Map;
 
 public class LTGameOptions {
+    private static final String SHARE_CACHE_DIR_NAME = "toLogin";
     //是否debug
     private boolean debug;
     //app名称
@@ -77,7 +79,12 @@ public class LTGameOptions {
     private boolean isTwitterEnable;
     //是否支持微博登录
     private boolean isWBEnable;
+    //缓存
+    private String cacheDir;
 
+    public String getCacheDir() {
+        return cacheDir;
+    }
 
     public String getAppName() {
         return appName;
@@ -256,6 +263,7 @@ public class LTGameOptions {
         this.mPhone = builder.mPhone;
         this.mPassword = builder.mPassword;
         this.mLoginCode = builder.mLoginCode;
+        this.cacheDir=builder.cacheDir;
 
         // enable
         this.wxEnable = builder.wxEnable;
@@ -304,6 +312,7 @@ public class LTGameOptions {
                 ", mPhone='" + mPhone + '\'' +
                 ", mPassword='" + mPassword + '\'' +
                 ", mLoginCode='" + mLoginCode + '\'' +
+                ", cacheDir='" + cacheDir + '\'' +
                 '}';
     }
 
@@ -311,6 +320,8 @@ public class LTGameOptions {
      * Builder
      */
     public static class Builder {
+        //缓存
+        private String cacheDir;
         // 调试配置
         private boolean debug;
         private String appName;
@@ -540,6 +551,11 @@ public class LTGameOptions {
             if (TextUtils.isEmpty(appName)) {
                 appName = context.getString(R.string.app_name);
             }
+            File storageDir = new File(context.getExternalCacheDir(), SHARE_CACHE_DIR_NAME);
+            if (!FileUtil.isExist(storageDir)){
+                storageDir.mkdirs();
+            }
+            this.cacheDir = storageDir.getAbsolutePath();
             return new LTGameOptions(this);
         }
     }

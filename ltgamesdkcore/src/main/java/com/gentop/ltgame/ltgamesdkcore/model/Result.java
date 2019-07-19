@@ -31,6 +31,10 @@ public class Result {
     public static final int STATE_RECHARGE_START = 11;
     //支付结果
     public static final int STATE_RECHARGE_RESULT = 12;
+    //微信扫码结果
+    public static final int STATE_WX_CODE_SCANNED = 13;
+    //微信结果获取
+    public static final int STATE_WX_CODE_RECEIVE = 14;
     //状态
     public int state;
     //目标
@@ -39,8 +43,10 @@ public class Result {
     public LTGameError error;
     OneStoreResult result;
 
+
     private BaseEntry<ResultModel> resultModel;
     private String errorMsg;
+    private BaseEntry baseEntry;
 
     public Result(int state, int target) {
         this.state = state;
@@ -59,6 +65,10 @@ public class Result {
     public Result(int state, BaseEntry<ResultModel> resultModel) {
         this.state = state;
         this.resultModel = resultModel;
+    }
+
+    public Result(BaseEntry resultModel) {
+        this.baseEntry = resultModel;
     }
 
     public Result(int state, String resultModel) {

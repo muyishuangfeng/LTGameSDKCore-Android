@@ -15,8 +15,6 @@ public abstract class AccessToken {
 
     /**
      * 是否可用
-     *
-     * @return
      */
     public boolean isValid() {
         if (getLoginTarget() == Target.LOGIN_WX) {
@@ -32,7 +30,7 @@ public abstract class AccessToken {
             return openid;
     }
 
-    public String getUnionid() {
+    private String getUnionid() {
         return unionid;
     }
 

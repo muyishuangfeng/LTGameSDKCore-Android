@@ -29,7 +29,7 @@ public interface IPlatform extends Recyclable {
      *
      * @param intent 接收的intent
      */
-    void handIntent(Activity intent);
+    void handleIntent(Activity intent);
 
     /**
      * 登录返回的结果

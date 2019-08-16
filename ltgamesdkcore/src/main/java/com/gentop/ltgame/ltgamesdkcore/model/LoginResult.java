@@ -43,7 +43,6 @@ public class LoginResult extends Result {
     }
 
 
-
     public static LoginResult successOf(int target, LTGameUser baseUser, AccessToken baseToken) {
         LoginResult result = new LoginResult(STATE_SUCCESS, target);
         result.mUser = baseUser;
@@ -97,6 +96,12 @@ public class LoginResult extends Result {
         return result;
     }
 
+    public static LoginResult loginOut(LTGameError error) {
+        LoginResult result = new LoginResult(STATE_LOGIN_OUT);
+        result.error = error;
+        return result;
+    }
+
     public static LoginResult cancelOf(int target) {
         return new LoginResult(STATE_CANCEL, target);
     }
@@ -142,7 +147,6 @@ public class LoginResult extends Result {
     public LTGameError getError() {
         return error;
     }
-
 
 
     @Override

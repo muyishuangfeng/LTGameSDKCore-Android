@@ -32,7 +32,7 @@ public class LTGameSdk {
         // GooglePlay平台
         if (mOptions.isGooglePlayEnable()) {
             addPlatform(Target.PLATFORM_GOOGLE_PLAY, "com.sdk.ltgame.ltgoogleplay.GooglePlayPlatform$Factory");
-        }
+        }4
         // oneStore平台
         if (mOptions.isOneStoreEnable()) {
             addPlatform(Target.PLATFORM_ONE_STORE, "com.sdk.ltgame.ltonestore.OneStorePlatform$Factory");

@@ -35,6 +35,8 @@ public class Result {
     public static final int STATE_WX_CODE_SCANNED = 13;
     //微信结果获取
     public static final int STATE_WX_CODE_RECEIVE = 14;
+    //退出登录
+    public static final int STATE_LOGIN_OUT = 15;
     //状态
     public int state;
     //目标

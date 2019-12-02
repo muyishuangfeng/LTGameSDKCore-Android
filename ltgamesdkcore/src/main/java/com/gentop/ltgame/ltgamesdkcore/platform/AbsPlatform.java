@@ -19,7 +19,7 @@ public abstract class AbsPlatform implements IPlatform {
     protected int mTarget;
     protected String mAppKey;
     protected String mClientID;
-    protected String mBaseUrl;
+    protected boolean mISBaseUrl;
     protected String mAdID;
     protected String mPackageID;
     protected int mSelfRequestCode;
@@ -57,11 +57,11 @@ public abstract class AbsPlatform implements IPlatform {
         mTarget = target;
     }
 
-    public AbsPlatform(Context context, String baseUrl, String appId, String appKey,
+    public AbsPlatform(Context context, boolean baseUrl, String appId, String appKey,
                        String qqAppID, int target) {
         mAppId = appId;
         mAppKey = appKey;
-        mBaseUrl = baseUrl;
+        mISBaseUrl = baseUrl;
         mQqAppID = qqAppID;
         mTarget = target;
     }
@@ -80,20 +80,20 @@ public abstract class AbsPlatform implements IPlatform {
         mTarget = target;
     }
 
-    public AbsPlatform(Context context, String appId, String appKey, String baseUrl, String phone,
+    public AbsPlatform(Context context, String appId, String appKey, boolean baseUrl, String phone,
                        String password, String loginCode, int target) {
         mAppId = appId;
         mAppKey = appKey;
-        mBaseUrl = baseUrl;
+        mISBaseUrl = baseUrl;
         mLoginCode = loginCode;
         mPhone = phone;
         mPassword = password;
         mTarget = target;
     }
 
-    public AbsPlatform(Context context, String baseUrl, String appId, String appKey, String clientID,
+    public AbsPlatform(Context context, boolean baseUrl, String appId, String appKey, String clientID,
                        String adID, String packageID, int selfRequestCode, int target) {
-        mBaseUrl = baseUrl;
+        mISBaseUrl = baseUrl;
         mAppId = appId;
         mAppKey = appKey;
         mClientID = clientID;
@@ -103,9 +103,9 @@ public abstract class AbsPlatform implements IPlatform {
         mTarget = target;
     }
 
-    public AbsPlatform(Context context, String baseUrl, String appId, String appKey, String adID,
+    public AbsPlatform(Context context, boolean baseUrl, String appId, String appKey, String adID,
                        String packageID, int target) {
-        mBaseUrl = baseUrl;
+        mISBaseUrl = baseUrl;
         mAppId = appId;
         mAppKey = appKey;
         mAdID = adID;

@@ -79,8 +79,28 @@ public class LTGameOptions {
     private boolean isTwitterEnable;
     //是否支持微博登录
     private boolean isWBEnable;
+    //是否是测试服务器
+    private boolean mISServerTest;
     //缓存
     private String cacheDir;
+    //游客登录
+    private boolean isGuest;
+
+    public boolean getIsGuest() {
+        return isGuest;
+    }
+
+    public void setIsGuest(boolean isGuest) {
+        this.isGuest = isGuest;
+    }
+
+    public boolean getISServerTest() {
+        return mISServerTest;
+    }
+
+    public void setISServerTest(boolean mISServerTest) {
+        this.mISServerTest = mISServerTest;
+    }
 
     public String getCacheDir() {
         return cacheDir;
@@ -150,6 +170,7 @@ public class LTGameOptions {
     public void setDebug(boolean debug) {
         this.debug = debug;
     }
+
 
     public String getBaseUrl() {
         return baseUrl;
@@ -263,7 +284,7 @@ public class LTGameOptions {
         this.mPhone = builder.mPhone;
         this.mPassword = builder.mPassword;
         this.mLoginCode = builder.mLoginCode;
-        this.cacheDir=builder.cacheDir;
+        this.cacheDir = builder.cacheDir;
 
         // enable
         this.wxEnable = builder.wxEnable;
@@ -275,6 +296,8 @@ public class LTGameOptions {
         this.isPhoneEnable = builder.isPhoneEnable;
         this.isWBEnable = builder.isWBEnable;
         this.isTwitterEnable = builder.isTwitterEnable;
+        this.mISServerTest = builder.mISServerTest;
+        this.isGuest = builder.isGuest;
     }
 
 
@@ -384,6 +407,10 @@ public class LTGameOptions {
         private boolean isTwitterEnable;
         //是否支持微博登录
         private boolean isWBEnable;
+        //是否是测试服务器
+        private boolean mISServerTest;
+        //是否是游客登录
+        private boolean isGuest;
 
         public Builder(Context context) {
             this.context = context;
@@ -546,13 +573,23 @@ public class LTGameOptions {
             return this;
         }
 
+        public Builder isServerTest(boolean mISServerTest) {
+            this.mISServerTest = mISServerTest;
+            return this;
+        }
+
+        public Builder guestEnable(boolean isGuest) {
+            this.isGuest = isGuest;
+            return this;
+        }
+
 
         public LTGameOptions build() {
             if (TextUtils.isEmpty(appName)) {
                 appName = context.getString(R.string.app_name);
             }
             File storageDir = new File(context.getExternalCacheDir(), SHARE_CACHE_DIR_NAME);
-            if (!FileUtil.isExist(storageDir)){
+            if (!FileUtil.isExist(storageDir)) {
                 storageDir.mkdirs();
             }
             this.cacheDir = storageDir.getAbsolutePath();

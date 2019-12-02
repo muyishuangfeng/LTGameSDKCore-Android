@@ -49,6 +49,11 @@ public class LTGameSdk {
         if (mOptions.isWxEnable()) {
             addPlatform(Target.PLATFORM_WX, "com.sdk.ltgame.ltwechat.WxPlatform$Factory");
         }
+        // 游客登录
+        if (mOptions.getIsGuest()) {
+            addPlatform(Target.PLATFORM_GUEST, "com.sdk.ltgame.guest.GuestPlatform$Factory");
+        }
+
     }
 
     /**

@@ -24,6 +24,7 @@ public class LoginObject {
     private String mPassword;//密码
     private String mLoginCode;//登录状态码
     private String qqAppID;//qqAppID
+    private String guestType;//游客登录类型
 
     public String getScope() {
         return scope;
@@ -167,5 +168,13 @@ public class LoginObject {
 
     public void setQqAppID(String qqAppID) {
         this.qqAppID = qqAppID;
+    }
+
+    public String getGuestType() {
+        return guestType;
+    }
+
+    public void setGuestType(String guestType) {
+        this.guestType = guestType;
     }
 }

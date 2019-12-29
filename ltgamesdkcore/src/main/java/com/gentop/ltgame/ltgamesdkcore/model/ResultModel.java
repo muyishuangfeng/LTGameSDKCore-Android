@@ -11,6 +11,8 @@ public class ResultModel {
     private String lt_uid_token;
     //乐推订单ID
     private String lt_order_id;
+    //类型
+    private String lt_type;
 
 
     public String getAuth_code() {
@@ -53,6 +55,14 @@ public class ResultModel {
         this.lt_uid_token = lt_uid_token;
     }
 
+    public String getLt_type() {
+        return lt_type;
+    }
+
+    public void setLt_type(String lt_type) {
+        this.lt_type = lt_type;
+    }
+
     @Override
     public String toString() {
         return "ResultModel{" +
@@ -61,6 +71,7 @@ public class ResultModel {
                 ", api_token='" + api_token + '\'' +
                 ", lt_uid_token='" + lt_uid_token + '\'' +
                 ", lt_order_id='" + lt_order_id + '\'' +
+                ", lt_type='" + lt_type + '\'' +
                 '}';
     }
 }

@@ -18,6 +18,7 @@ import com.gentop.ltgame.ltgamesdkcore.platform.IPlatform;
 
 import java.lang.ref.WeakReference;
 
+
 /**
  * 登陆管理类，使用该类进行登陆操作
  */

@@ -1,9 +1,11 @@
 package com.gentop.ltgame.ltgamesdkcore.common;
 
+
 import android.support.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
 
 public class Target {
 
@@ -17,6 +19,7 @@ public class Target {
     public static final int PLATFORM_WB = 107; // 微博登录
     public static final int PLATFORM_TWITTER = 108; // Twitter登录
     public static final int PLATFORM_WX_SCAN = 109; // 微信扫码登录
+    public static final int PLATFORM_PAY_WALL = 110; // payWall支付
 
 
 
@@ -33,8 +36,9 @@ public class Target {
 
     public static final int PLATFORM_GUEST = 210; // 游客登录
     public static final int LOGIN_GUEST = 211; // 游客登录
+    public static final int RECHARGE_PAY_WALL = 212; // payWall支付
 
-    @IntDef({Target.RECHARGE_GOOGLE, Target.RECHARGE_ONE_STORE})
+    @IntDef({Target.RECHARGE_GOOGLE, Target.RECHARGE_ONE_STORE, Target.RECHARGE_PAY_WALL})
     @Retention(RetentionPolicy.SOURCE)
     public @interface RechargeTarget {
 
@@ -48,7 +52,7 @@ public class Target {
 
     @IntDef({Target.PLATFORM_FACEBOOK, Target.PLATFORM_GOOGLE, Target.PLATFORM_QQ, Target.PLATFORM_WX,
             Target.PLATFORM_GOOGLE_PLAY, Target.PLATFORM_ONE_STORE, PLATFORM_TWITTER, PLATFORM_WB,
-            PLATFORM_PHONE, PLATFORM_WX_SCAN,PLATFORM_GUEST})
+            PLATFORM_PHONE, PLATFORM_WX_SCAN,PLATFORM_GUEST,PLATFORM_PAY_WALL})
     @Retention(RetentionPolicy.SOURCE)
     public @interface PlatformTarget {
     }

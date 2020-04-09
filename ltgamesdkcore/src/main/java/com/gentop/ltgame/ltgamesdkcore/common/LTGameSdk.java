@@ -53,6 +53,10 @@ public class LTGameSdk {
         if (mOptions.getIsGuest()) {
             addPlatform(Target.PLATFORM_GUEST, "com.sdk.ltgame.guest.GuestPlatform$Factory");
         }
+        // payWall平台
+        if (mOptions.getIsPayWall()) {
+            addPlatform(Target.PLATFORM_PAY_WALL, "com.sdk.ltgame.paywall.PWPlatform$Factory");
+        }
 
     }
 
@@ -80,15 +84,14 @@ public class LTGameSdk {
      *
      * @param factory 平台工厂
      */
-    public static void addPlatform(PlatformFactory factory) {
+    private static void addPlatform(PlatformFactory factory) {
         mPlatformFactories.append(factory.getPlatformTarget(), factory);
     }
 
     /**
      * 添加平台
      *
-     * @param target       目标平台
-     * @param factoryClazz
+     * @param target 目标平台
      */
     private static void addPlatform(int target, String factoryClazz) {
         try {

@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import com.gentop.ltgame.ltgamesdkcore.manager.GlobalPlatform;
 import com.gentop.ltgame.ltgamesdkcore.platform.IPlatform;
 
+
 /**
  * 激活登陆的通用 Activity
  */

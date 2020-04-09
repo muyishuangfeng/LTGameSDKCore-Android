@@ -17,6 +17,7 @@ import com.gentop.ltgame.ltgamesdkcore.platform.IPlatform;
 
 import java.lang.ref.WeakReference;
 
+
 public class RechargeManager {
 
     public static final String TAG = RechargeManager.class.getSimpleName();

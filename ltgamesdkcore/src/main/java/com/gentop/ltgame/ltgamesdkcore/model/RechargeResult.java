@@ -29,6 +29,7 @@ public class RechargeResult extends Result {
         super(state, resultModel);
     }
 
+
     public RechargeResult(int state, String resultModel) {
         super(state, resultModel);
     }
@@ -51,6 +52,11 @@ public class RechargeResult extends Result {
         result.rechargeObject = obj;
         return result;
     }
+    public static RechargeResult successOf(int target) {
+        RechargeResult result = new RechargeResult(STATE_RECHARGE_SUCCESS);
+        result.target = target;
+        return result;
+    }
 
     public static RechargeResult successOf(BaseEntry<ResultModel> resultModel) {
         RechargeResult result = new RechargeResult(STATE_RECHARGE_SUCCESS, resultModel);
@@ -71,6 +77,7 @@ public class RechargeResult extends Result {
         result.errorMsg = errorMsg;
         return result;
     }
+
 
     public static RechargeResult failOf(int target, RechargeObject obj, LTGameError error) {
         RechargeResult result = new RechargeResult(STATE_RECHARGE_FAILED, obj, target);

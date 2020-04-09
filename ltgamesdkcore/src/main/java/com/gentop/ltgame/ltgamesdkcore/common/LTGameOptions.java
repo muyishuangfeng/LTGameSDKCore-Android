@@ -85,9 +85,15 @@ public class LTGameOptions {
     private String cacheDir;
     //游客登录
     private boolean isGuest;
+    //payWall
+    private boolean isPayWall;
 
     public boolean getIsGuest() {
         return isGuest;
+    }
+
+    public boolean getIsPayWall() {
+        return isPayWall;
     }
 
     public void setIsGuest(boolean isGuest) {
@@ -298,6 +304,7 @@ public class LTGameOptions {
         this.isTwitterEnable = builder.isTwitterEnable;
         this.mISServerTest = builder.mISServerTest;
         this.isGuest = builder.isGuest;
+        this.isPayWall = builder.isPayWall;
     }
 
 
@@ -411,6 +418,8 @@ public class LTGameOptions {
         private boolean mISServerTest;
         //是否是游客登录
         private boolean isGuest;
+        //payWall
+        private boolean isPayWall;
 
         public Builder(Context context) {
             this.context = context;
@@ -435,6 +444,11 @@ public class LTGameOptions {
         public Builder qq(String qqAppId) {
             this.qqAppId = qqAppId;
             this.qqEnable = true;
+            return this;
+        }
+
+        public Builder payWall() {
+            this.isPayWall = true;
             return this;
         }
 
